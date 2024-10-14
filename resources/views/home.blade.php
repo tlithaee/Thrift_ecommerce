@@ -23,7 +23,7 @@
             </div>
         </div>
     </section>
-    
+
     <section id="contact" class="py-20 bg-gray-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-4xl font-bold text-center mb-10 text-green-800">Hubungi Kami</h3>
@@ -56,4 +56,4 @@
             </div>
         </div>
     </section>
-  </x-layout>
+</x-layout>
