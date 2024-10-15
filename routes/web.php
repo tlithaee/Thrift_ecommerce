@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChefController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Menu;
 
@@ -42,6 +43,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/order', function () {
         return view('order', ['title' => 'Order Page']);
     });
+
+    Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
+
 });
 
 // Authentication routes
