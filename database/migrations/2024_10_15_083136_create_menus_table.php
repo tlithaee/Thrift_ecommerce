@@ -12,17 +12,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('food_name');
-            $table->string('category');
-            $table->string('chef_name');
-            $table->decimal('price', 8, 2);
-            $table->string('food_image');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade'); 
+            $table->foreignId('chef_id')->constrained()->onDelete('cascade'); 
+            $table->decimal('price', 8, 2); 
+            $table->string('food_image'); 
             $table->string('slug');
             $table->text('description');
             $table->text('ingredients');
             $table->timestamps();
-        });
+        });        
     }
 
     /**

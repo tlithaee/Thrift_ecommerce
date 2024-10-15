@@ -10,22 +10,20 @@
                 <!-- Product info -->
                 <div class="flex flex-col justify-between p-10 w-full">
                     <div>
-                        <!-- Wrap title, price, chef name, and category in a flexbox -->
                         <div class="my-2">
-                            <p class="text-sm text-gray-600">{{ $menu->category }}</p>
+                            <p class="text-sm text-gray-600">{{ $menu->category->category_name }}</p> 
                         </div>
 
                         <div class="flex items-center justify-between">
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $menu->food_name }}</h1>
-                            <p class="text-xl tracking-tight text-gray-900">Rp.{{ number_format($menu->price, 2) }}</p> <!-- Price -->
+                            <p class="text-xl tracking-tight text-gray-900">Rp.{{ number_format($menu->price, 2) }}</p> 
                         </div>
 
                         <div class="mt-2">
-                            <p class="text-sm text-gray-600">Chef: {{ $menu->chef_name }}</p>
+                            <p class="text-sm text-gray-600">Chef: {{ $menu->chef->name }}</p> 
                         </div>
 
                         <div class="py-2">
-                            <!-- Description and details -->
                             <div>
                                 <p class="text-base text-gray-900">{{ $menu->description }}</p>
                             </div>
