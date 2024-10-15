@@ -1,6 +1,15 @@
 <x-layout>
     <div class="h-auto overflow-hidden">
         <div class="pt-16 flex justify-center">
+            <!-- Back Button -->
+            <div class="absolute top-24 left-24">
+                <a href="/menus" class="flex items-center text-white bg-green-600 rounded hover:bg-green-700 transition p-2">
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+                    </svg>
+                </a>
+            </div>
+
             <div class="flex-none w-full py-8 px-2 bg-gray-100 rounded-xl shadow-md overflow-hidden flex">
                 <!-- Menu Image -->
                 <div class="max-w-md sm:px-6 lg:px-8 flex-none">
