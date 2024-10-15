@@ -4,7 +4,7 @@
             <div class="max-w-4xl mx-auto text-center text-green-800">
                 <h1 class="text-5xl font-bold mb-4">ArtisanEats</h1>
                 <p class="text-2xl font-semibold mb-10">Serve Best Foods and Chefs</p>
-                <a href="/menu" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded-lg font-medium">Browse Menu</a>
+                <a href="/menus" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded-lg font-medium">Browse Menu</a>
             </div>
         </div>
     </section>
