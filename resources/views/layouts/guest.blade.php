@@ -27,7 +27,8 @@
             <div class="w-full max-w-md p-8">
                 <div class="mb-4 text-center">
                     <a href="/">
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                        <img src="{{ asset('images/log_logo.png') }}" class="object-contain h-20 w-20"/>
+                        {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
                     </a>
                 </div>
                 {{ $slot }}

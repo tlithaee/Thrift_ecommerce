@@ -13,8 +13,8 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div>
-                    <h3 class="text-4xl font-bold mb-4 text-green-800">Tentang Kami</h3>
-                    <p class="text-lg mb-6">Selamat datang di ArtisanEats! Silahkan menikmati makanan kami</p>
+                    <h3 class="text-4xl font-bold mb-4 text-green-800">About Us</h3>
+                    <p class="text-lg mb-6">Welcome to Artisan Eats! Enjoy our Food</p>
                     <a href="#contact" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded-lg font-medium">Hubungi Kami</a>
                 </div>
                 <div>
@@ -26,20 +26,20 @@
 
     <section id="contact" class="py-20 bg-gray-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-bold text-center mb-10 text-green-800">Hubungi Kami</h3>
+            <h3 class="text-4xl font-bold text-center mb-10 text-green-800">Contact</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
-                    <p class="text-lg mb-6">Jika Anda memiliki pertanyaan atau ingin melakukan reservasi, silakan hubungi kami melalui informasi kontak di bawah ini atau kirimkan pesan melalui formulir.</p>
-                    <ul class="text-lg">
-                        <li class="mb-4"><strong>Alamat:</strong> Jalan Makanan Enak No. 123, Jakarta</li>
-                        <li class="mb-4"><strong>Telepon:</strong> +62 812-3456-xxxx</li>
-                        <li class="mb-4"><strong>Email:</strong> info@artisaneats.com</li>
-                    </ul>
+                    <p class="text-lg mb-6">If you have any questions or would like to make a reservation, please contact us using the information below or send a message through the form.</p>
+                        <ul class="text-lg">
+                            <li class="mb-4"><strong>Address:</strong> Jalan Makanan Enak No. 123, Jakarta</li>
+                            <li class="mb-4"><strong>Phone:</strong> +62 812-3456-xxxx</li>
+                            <li class="mb-4"><strong>Email:</strong> info@artisaneats.com</li>
+                        </ul>
                 </div>
                 <div>
                     <form class="bg-white p-6 rounded-lg shadow-lg">
                         <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                             <input type="text" id="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="mb-4">
@@ -47,10 +47,10 @@
                             <input type="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="mb-4">
-                            <label for="message" class="block text-sm font-medium text-gray-700">Pesan</label>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                             <textarea id="message" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></textarea>
                         </div>
-                        <button type="submit" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded-lg font-medium">Kirim Pesan</button>
+                        <button type="submit" class="bg-green-600 hover:bg-green-500 text-white py-3 px-6 rounded-lg font-medium">Send Message</button>
                     </form>
                 </div>
             </div>
