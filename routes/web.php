@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ChefController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +28,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/order', function () {
         return view('order', ['title' => 'Order Page']);
     });
+
+    Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
+
 });
 
 require __DIR__.'/auth.php';
