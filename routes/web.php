@@ -2,35 +2,58 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChefController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Menu;
+use App\Models\Category;
 
+// Home route
 Route::get('/', function () {
     return view('home', ['title' => 'Home Page']);
 });
 
+// Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Dashboard route
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::get('/menu', function () {
-        return view('menu', ['title' => 'Menu Page']);
+    // Profile routes
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
+    // Menu Route
+    Route::get('/menus', function () {
+        $menus = Menu::with('category')->get();
+        $categories = Category::all();
+        return view('menus', ['menus' => $menus, 'categories' => $categories]);
+    });
+
+    Route::get('/menus/{menu:slug}', function (Menu $menu) {
+        $menu->load('category', 'chef');
+        return view('menu', ['menu' => $menu]);
+    });
+
+    // Categories Route
+    Route::get('/categories/{slug}', [CategoryController::class, 'index'])->name('categories.index');
+
+    // Chef Routes
     Route::get('/chefs', function () {
         return view('chefs', ['title' => 'Chefs Page']);
     });
 
+    // Order Routes
     Route::get('/order', function () {
         return view('order', ['title' => 'Order Page']);
     });
 
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
-
 });
 
-require __DIR__.'/auth.php';
+// Authentication routes
+require __DIR__ . '/auth.php';

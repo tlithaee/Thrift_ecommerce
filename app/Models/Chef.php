@@ -15,7 +15,13 @@ class Chef extends Model
         'photo'
     ];
 
-    // Define the many-to-many relationship with categories
+    // Each Chef can prepare multiple Menus
+    public function menus()
+    {
+        return $this->hasMany(Menu::class); 
+    }
+
+    // Many-to-many relationship with categories
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'chef_category');
