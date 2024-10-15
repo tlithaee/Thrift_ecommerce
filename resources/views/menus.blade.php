@@ -31,8 +31,8 @@
                             <div class="mb-2 flex">
                                 <p class="mr-3 text-sm font-semibold">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
                             </div>
-                            <h3 class="mb-2 text-sm text-gray-400">{{ $menu->food_name }}</h3>
-                            <p class="text-sm text-gray-600">{{ $menu->category->category_name }}</p>
+                            <h3 class="mb-2 text-sm text-gray-700">{{ $menu->food_name }}</h3>
+                            <p class="text-sm text-gray-400">{{ $menu->category->category_name }}</p>
                         </div>
                         <button class="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
                             <div class="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-emerald-600 group-hover:text-white">Add</div>
