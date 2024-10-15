@@ -3,11 +3,12 @@
         <div class="pt-16 flex justify-center">
             <!-- Back Button -->
             <div class="absolute top-24 left-24">
-                <a href="/menus" class="flex items-center text-white bg-green-600 rounded hover:bg-green-700 transition p-2">
+                <button onclick="window.history.back()" class="flex items-center text-white bg-green-600 rounded hover:bg-green-700 transition p-2">
                     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
                     </svg>
-                </a>
+                </button>
+
             </div>
 
             <div class="flex-none w-full py-8 px-2 bg-gray-100 rounded-xl shadow-md overflow-hidden flex">
@@ -20,16 +21,16 @@
                 <div class="flex flex-col justify-between p-10 w-full">
                     <div>
                         <div class="my-2">
-                            <p class="text-sm text-gray-600">{{ $menu->category->category_name }}</p> 
+                            <p class="text-sm text-gray-600">{{ $menu->category->category_name }}</p>
                         </div>
 
                         <div class="flex items-center justify-between">
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $menu->food_name }}</h1>
-                            <p class="text-xl tracking-tight text-gray-900">Rp.{{ number_format($menu->price, 2) }}</p> 
+                            <p class="text-xl tracking-tight text-gray-900">Rp.{{ number_format($menu->price, 2) }}</p>
                         </div>
 
                         <div class="mt-2">
-                            <p class="text-sm text-gray-600">Chef: {{ $menu->chef->name }}</p> 
+                            <p class="text-sm text-gray-600">Chef: {{ $menu->chef->name }}</p>
                         </div>
 
                         <div class="py-2">
