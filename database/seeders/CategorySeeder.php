@@ -44,7 +44,7 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::create([
-            'specialty_name' => 'Meat Specialist (Steak, BBQ, etc.)',
+            'specialty_name' => 'Meat Specialist',
             'category_name' => 'Meat',
             'color' => 'brown'
         ]);
