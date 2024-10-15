@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChefController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Menu;
 use App\Models\Category;
@@ -29,20 +30,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Menu Route
     Route::get('/menus', function () {
         $menus = Menu::with('category')->get();
-        $categories = Category::all(); 
+        $categories = Category::all();
         return view('menus', ['menus' => $menus, 'categories' => $categories]);
     });
 
     Route::get('/menus/{menu:slug}', function (Menu $menu) {
-        $menu->load('category', 'chef'); 
-        return view('menu', ['menu' => $menu]); 
+        $menu->load('category', 'chef');
+        return view('menu', ['menu' => $menu]);
     });
-    
+
     // Categories Route
-    Route::get('/categories/{category:slug}', function (Category $category) {
-        $menus = $category->menus; 
-        return view('category', ['menus' => $menus, 'category' => $category]);
-    });
+    Route::get('/categories/{slug}', [CategoryController::class, 'index'])->name('categories.index');
 
     // Chef Routes
     Route::get('/chefs', function () {

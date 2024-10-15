@@ -1,16 +1,23 @@
 <x-layout>
-    <section class="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
+    <section class="bg-white py-16 text-gray-700 sm:py-16 lg:py-20">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <h2 class="mb-7 text-4xl tracking-tight font-extrabold text-green-900 text-left">Categories</h2>
 
+            <!-- Categories Section -->
             <div class="mt-2 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-4">
                 @foreach ($categories as $category)
                 <x-category-card :category="$category" />
                 @endforeach
             </div>
 
+            <!-- Recommended Menu Cards -->
             <div class="mt-10">
-                <h2 class="mb-7 text-4xl tracking-tight font-extrabold text-green-900 text-left">Recommended Menu</h2>
+                <div class="max-w-screen-xl mb-2 lg:mb-6">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-green-900 text-left">Recommended Menus</h2>
+                    <p class="font-light text-gray-500 lg:mb-6 sm:text-xl text-left">
+                        Explore our carefully curated selection of recommended menus. Each dish is crafted with the finest ingredients and culinary expertise, promising a delightful dining experience.
+                    </p>
+                </div>
                 <div class="mt-2 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-4">
                     @foreach ($menus->take(8) as $menu)
                     <article class="relative flex flex-col overflow-hidden rounded-lg border group">

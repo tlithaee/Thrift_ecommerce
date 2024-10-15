@@ -21,7 +21,7 @@ class MenuFactory extends Factory
 
         return [
             'food_name' => $this->faker->words(rand(1, 3), true),
-            'price' => $this->faker->numberBetween(20000, 60000),
+            'price' => $this->faker->numberBetween(50000, 100000),
             'food_image' => 'https://picsum.photos/400/300?random=' . $this->faker->unique()->numberBetween(1, 10000),
             'category_id' => $category->id,
             'description' => $this->faker->sentence(14),

@@ -113,6 +113,6 @@ class MenuSeeder extends Seeder
             ]);
         }
     
-        Menu::factory()->count(40)->create();
+        Menu::factory()->count(100)->create();
     }
 }

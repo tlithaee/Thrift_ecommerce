@@ -2,12 +2,12 @@
     <div class="h-auto overflow-hidden">
         <div class="pt-16 flex justify-center">
             <div class="flex-none w-full py-8 px-2 bg-gray-100 rounded-xl shadow-md overflow-hidden flex">
-                <!-- Image gallery -->
+                <!-- Menu Image -->
                 <div class="max-w-md sm:px-6 lg:px-8 flex-none">
                     <img src="{{ $menu->food_image }}" alt="{{ $menu->food_name }}" class="h-full w-full object-cover object-center rounded-lg">
                 </div>
 
-                <!-- Product info -->
+                <!-- Menu Details -->
                 <div class="flex flex-col justify-between p-10 w-full">
                     <div>
                         <div class="my-2">
