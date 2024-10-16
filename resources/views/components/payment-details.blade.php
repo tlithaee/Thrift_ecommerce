@@ -7,14 +7,19 @@
             <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
             <input type="email" id="email" class="mt-1 block w-full border rounded-md p-2" placeholder="barlyvallendito@gmail.com">
         </div>
-
+    </div>
 
     <div class="mt-6">
         <div class="flex justify-between text-lg font-semibold mt-4">
+            
             <span>Total</span>
-            <span>$ 399.89</span>
+            <span>Rp. {{ $total }}</span>
         </div>
     </div>
 
-    <button class="mt-6 w-full bg-black text-white py-3 rounded-lg font-semibold">Pay $ 399.89</button>
+    <form action="/order/submit" method="POST">
+        @csrf
+        <button type="submit" class="mt-6 w-full bg-black text-white py-3 rounded-lg font-semibold">Checkout</button>    
+    </form>
+    
 </div>

@@ -50,8 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Order Routes
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-
-
+    Route::post('/order/submit', [OrderController::class, 'submitOrder'])->name('order.submit');
+    Route::post('/order/{slug}', [OrderController::class, 'addMenu'])->name('order.addMenu');
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });
 

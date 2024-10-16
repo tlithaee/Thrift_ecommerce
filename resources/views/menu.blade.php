@@ -48,33 +48,10 @@
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="flex items-center mt-10">
-                                <x-primary-button class="px-52">Add to Cart</x-primary-button>
-                                <div class="flex items-center ml-5">
-                                    <button class="bg-gray-200 rounded-l px-4 py-2" onclick="decreaseCounter()">-</button>
-                                    <input type="text" id="counter" value="1" class="w-12 text-center border rounded" readonly>
-                                    <button class="bg-gray-200 rounded-r px-4 py-2" onclick="increaseCounter()">+</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function increaseCounter() {
-            let counter = document.getElementById('counter');
-            counter.value = parseInt(counter.value) + 1;
-        }
-
-        function decreaseCounter() {
-            let counter = document.getElementById('counter');
-            if (parseInt(counter.value) > 1) {
-                counter.value = parseInt(counter.value) - 1;
-            }
-        }
-    </script>
 </x-layout>

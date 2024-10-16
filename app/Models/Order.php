@@ -12,7 +12,6 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'status',
-        // 'shipping_method'
     ];
 
     public function user()
@@ -22,6 +21,6 @@ class Order extends Model
 
     public function menu()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class)->withPivot('quantity');
     }
 }
