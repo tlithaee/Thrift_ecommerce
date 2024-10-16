@@ -16,12 +16,12 @@
       </div>
       <div class="hidden md:block">
         <div class="ml-4 flex items-center md:ml-6">
-          <button type="button" class="relative rounded-full p-1 mt-2 text-white hover:text-gray-400 focus:outline-none ">
+          {{-- <button type="button" class="relative rounded-full p-1 mt-2 text-white hover:text-gray-400 focus:outline-none ">
             <span class="absolute -inset-1.5"></span>
             <span class="sr-only">Shopping cart</span>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
             <span class="material-symbols-outlined">shopping_cart</span>
-          </button>
+          </button> --}}
 
           <!-- Tombol Login dan Register -->
           @guest

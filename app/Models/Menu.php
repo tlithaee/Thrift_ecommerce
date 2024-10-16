@@ -20,6 +20,10 @@ class Menu extends Model
         'ingredients',
     ];
 
+    protected $guarded = [
+        'id',
+    ];
+
     // Each Menu belongs to one Category
     public function category()
     {
