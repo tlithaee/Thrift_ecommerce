@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('color')->nullable();
             $table->string('category_image'); 
             $table->string('slug');
+            $table->text('description');
             $table->timestamps();
         });
     }

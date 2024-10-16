@@ -1,7 +1,7 @@
 <x-layout>
     <section class="bg-white py-12 text-gray-700 sm:py-16 lg:py-20">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center mb-4">
+            <div class="flex items-center mb-6">
                 <button onclick="window.history.back()" class="flex items-center text-white bg-green-600 rounded hover:bg-green-700 transition p-2">
                     <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
@@ -9,14 +9,17 @@
                 </button>
                 <h2 class="text-4xl tracking-tight font-extrabold text-green-900 text-left ml-4">{{ $category->category_name }}</h2>
             </div>
+            <p class="font-light text-gray-500 lg:mb-8 sm:text-xl text-left">
+                {{ $category->description }}
+            </p>
 
             <!-- Pagination -->
-            <div class="mt-6">
+            <div class="mt-8">
                 {{ $menus->links() }}
             </div>
 
             <!-- Menu Cards -->
-            <div class="mt-10">
+            <div class="mt-6">
                 @if ($menus->isEmpty())
                 <div class="flex items-center justify-center h-64">
                     <p class="text-lg font-medium text-gray-600">No food items available here.</p>
@@ -45,7 +48,7 @@
                                     Add
                                 </div>
                             </button>
-                        </form>  
+                        </form>
                     </article>
                     @endforeach
                 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,18 +18,15 @@
 
 <body class="font-sans text-gray-900 antialiased">
     <div class="flex min-h-screen">
-        <!-- Bagian Kiri: Latar Belakang Hijau -->
-        <div class="w-1/2 bg-green-600 flex items-center justify-center">
+        <div class="w-1/2 bg-green-600 lg:flex items-center justify-center md:block hidden">
             <img src="{{ asset('images/Order food.gif') }}" alt="Descriptive Image" class="object-contain h-2/3 w-2/3" />
         </div>
 
-        <!-- Bagian Kanan: Konten Formulir -->
-        <div class="w-1/2 flex items-center justify-center bg-white">
+        <div class="w-full md:w-1/2 flex items-center justify-center bg-white">
             <div class="w-full max-w-md p-8">
                 <div class="mb-4 text-center">
                     <a href="/">
-                        <img src="{{ asset('images/log_logo.png') }}" class="object-contain h-20 w-20"/>
-                        {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
+                        <img src="{{ asset('images/log_logo.png') }}" class="object-contain h-20 w-20" />
                     </a>
                 </div>
                 {{ $slot }}

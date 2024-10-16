@@ -12,6 +12,7 @@ class Category extends Model
         'color',
         'category_image',
         'slug',
+        'description',
     ];
 
     // Many-to-many relationship with chefs
