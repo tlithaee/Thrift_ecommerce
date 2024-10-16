@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('bio');
             $table->string('photo');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Chef extends Model
 {
@@ -12,7 +13,8 @@ class Chef extends Model
     protected $fillable = [
         'name',
         'bio',
-        'photo'
+        'photo',
+        'slug' 
     ];
 
     // Each Chef can prepare multiple Menus
@@ -25,5 +27,17 @@ class Chef extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'chef_category');
+    }
+
+    // Automatically generate a slug when creating a Chef
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($chef) {
+            if (empty($chef->slug)) {
+                $chef->slug = Str::slug($chef->name);
+            }
+        });
     }
 }

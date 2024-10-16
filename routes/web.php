@@ -46,6 +46,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/chefs', function () {
         return view('chefs', ['title' => 'Chefs Page']);
     });
+    Route::get('/chefs/{slug}', [ChefController::class, 'filterByCategory'])->name('chefs.filterByCategory');
+    Route::get('/chef/{slug}', [ChefController::class, 'show'])->name('chefs.show');
 
     // Order Routes
     Route::get('/order', function () {
