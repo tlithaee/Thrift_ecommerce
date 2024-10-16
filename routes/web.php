@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ChefController;
-use App\Http\Controllers\CategoryController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Menu;
 use App\Models\Category;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChefController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 
 // Home route
 Route::get('/', function () {
@@ -49,12 +50,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/chefs/{slug}', [ChefController::class, 'filterByCategory'])->name('chefs.filterByCategory');
     Route::get('/chef/{slug}', [ChefController::class, 'show'])->name('chefs.show');
 
-    // Order Routes
-    Route::get('/order', function () {
-        return view('order', ['title' => 'Order Page']);
-    });
-
+    // Cart Routes
+    Route::post('/cart/add/{menu}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/order', [CartController::class, 'showCart'])->name('cart.show');
+    Route::patch('/cart/update/{cartItem}', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::delete('/cart/remove/{cartItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/checkout', function () {
+        // Add your checkout logic or view rendering here
+        return view('checkout');
+    })->name('checkout');
+    
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
+
 });
 
 // Authentication routes

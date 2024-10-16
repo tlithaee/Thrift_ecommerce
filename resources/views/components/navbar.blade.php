@@ -9,19 +9,21 @@
           <div class="ml-10 flex items-baseline space-x-4">
             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
             <x-nav-link href="/menus" :active="request()->is('menu')">Menu</x-nav-link>
-            <x-nav-link href="/order" :active="request()->is('order')">Order</x-nav-link>
             <x-nav-link href="/chefs" :active="request()->is('chefs')">Chefs</x-nav-link>
           </div>
         </div>
       </div>
       <div class="hidden md:block">
         <div class="ml-4 flex items-center md:ml-6">
-          <button type="button" class="relative rounded-full p-1 mt-2 text-white hover:text-gray-400 focus:outline-none ">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">Shopping cart</span>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
-            <span class="material-symbols-outlined">shopping_cart</span>
-          </button>
+          <!-- Shopping Cart Button -->
+          <a href="/order">
+            <button type="button" class="relative rounded-full p-1 mt-2 text-white hover:text-gray-400 focus:outline-none">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Shopping cart</span>
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+              <span class="material-symbols-outlined">shopping_cart</span>
+            </button>
+          </a>
 
           <!-- Tombol Login dan Register -->
           @guest

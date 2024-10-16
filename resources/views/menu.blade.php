@@ -30,13 +30,9 @@
 
                         <!-- Chef Section -->
                         <div class="mt-4 flex items-center">
-                            <!-- "Chef:" Text -->
                             <p class="text-gray-600 font-semibold mr-2">Chef:</p>
-                            <!-- Chef Name with Rounded Rectangle -->
                             <div class="flex items-center bg-green-100 text-green-800 px-2 py-0.5 rounded-lg hover:bg-green-200 transition duration-300">
-                                <!-- Profile Picture -->
-                                <img src="{{ asset($menu->chef->photo) }}" alt="{{ $menu->chef->name }}" class="w-8 h-8 object-cover rounded-full mr-2"> <!-- Adjusted sizes here -->
-                                <!-- Chef Name -->
+                                <img src="{{ asset($menu->chef->photo) }}" alt="{{ $menu->chef->name }}" class="w-8 h-8 object-cover rounded-full mr-2">
                                 <a href="{{ route('chefs.show', $menu->chef->slug) }}" class="text-sm font-semibold hover:underline">
                                     {{ $menu->chef->name }}
                                 </a>
@@ -60,7 +56,7 @@
                             </div>
 
                             <div class="flex items-center mt-10">
-                                <x-primary-button class="px-52">Add to Cart</x-primary-button>
+                                <button id="add-to-cart-btn" onclick="addToCart()" class="px-52 bg-green-600 text-white font-bold py-2 rounded hover:bg-green-700 transition">Add to Cart</button>
                                 <div class="flex items-center ml-5">
                                     <button class="bg-gray-200 rounded-l px-4 py-2" onclick="decreaseCounter()">-</button>
                                     <input type="text" id="counter" value="1" class="w-12 text-center border rounded" readonly>
@@ -74,6 +70,11 @@
         </div>
     </div>
 
+    <!-- Popup Notification -->
+    <div id="popup-notification" class="fixed bottom-10 right-10 bg-green-600 text-white p-4 rounded-md shadow-lg opacity-0 transition-opacity duration-300" style="z-index: 1000;">
+        <p id="popup-message"></p>
+    </div>
+
     <script>
         function increaseCounter() {
             let counter = document.getElementById('counter');
@@ -85,6 +86,46 @@
             if (parseInt(counter.value) > 1) {
                 counter.value = parseInt(counter.value) - 1;
             }
+        }
+
+        function addToCart() {
+            const menuId = {{ $menu->id }};
+            const menuName = "{{ $menu->food_name }}";
+            const quantity = document.getElementById('counter').value;
+
+            // Send the AJAX request to add the menu to cart
+            fetch(`/cart/add/${menuId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ quantity: quantity })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showPopupNotification(`${menuName} has been added to your cart!`);
+                    // Reset the counter to 1 after successful addition
+                    document.getElementById('counter').value = '1';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function showPopupNotification(message) {
+            const popup = document.getElementById('popup-notification');
+            const popupMessage = document.getElementById('popup-message');
+
+            popupMessage.textContent = message;
+            popup.classList.remove('opacity-0');
+            popup.classList.add('opacity-100');
+
+            // Hide the popup after 3 seconds
+            setTimeout(() => {
+                popup.classList.remove('opacity-100');
+                popup.classList.add('opacity-0');
+            }, 3000);
         }
     </script>
 </x-layout>
