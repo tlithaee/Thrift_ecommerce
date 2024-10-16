@@ -3,10 +3,12 @@
 use App\Models\Menu;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ShippingAddressController;
 
 // Home route
 Route::get('/', function () {
@@ -52,16 +54,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Cart Routes
     Route::post('/cart/add/{menu}', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::get('/order', [CartController::class, 'showCart'])->name('cart.show');
+    Route::get('/order', [CartController::class, 'showCart'])->name('cart.show'); 
     Route::patch('/cart/update/{cartItem}', [CartController::class, 'updateCart'])->name('cart.update');
     Route::delete('/cart/remove/{cartItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-    Route::get('/checkout', function () {
-        // Add your checkout logic or view rendering here
-        return view('checkout');
-    })->name('checkout');
-    
-    Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 
+    // POST route for submitting shipping address
+    Route::post('/order', [ShippingAddressController::class, 'store'])->name('order.store');
+
+
+    Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });
 
 // Authentication routes
