@@ -24,9 +24,9 @@
             <p class="font-semibold text-green-700 mb-2">Specialty:</p>
             <div class="flex flex-wrap">
                 @foreach ($chef->categories as $category)
-                    <span class="bg-{{ $category->color }}-100 hover:underline px-3 py-1 rounded-full dark:bg-primary-200 mr-2 mb-2 text-sm">
-                        {{ $category->specialty_name ?? 'No specialty assigned' }}
-                    </span>
+                <a href="{{ route('chefs.filterByCategory', $category->slug) }}" class="bg-{{ $category->color }}-100 hover:underline px-3 py-1 rounded-full dark:bg-primary-200 mr-2 mb-2 text-sm">
+                    {{ $category->specialty_name ?? 'No specialty assigned' }}
+                </a>
                 @endforeach
             </div>
         </div>
@@ -36,14 +36,14 @@
             <p class="font-semibold text-green-700 mb-2">Signature Dishes:</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($chef->menus as $menu)
-                    <a href="/menus/{{ $menu->slug }}" class="border rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
-                        <img class="w-full h-48 object-cover" src="{{ asset($menu->food_image) }}" alt="{{ $menu->food_name }}">
-                        <div class="p-4">
-                            <h3 class="font-bold text-lg text-green-900 hover:underline">{{ $menu->food_name }}</h3>
-                            <p class="text-sm text-gray-500 mt-2">{{ $menu->description }}</p>
-                            <p class="text-sm text-gray-700 mt-2 font-semibold">Price: Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
-                        </div>
-                    </a>
+                <a href="/menus/{{ $menu->slug }}" class="border rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <img class="w-full h-48 object-cover" src="{{ asset($menu->food_image) }}" alt="{{ $menu->food_name }}">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-green-900 hover:underline">{{ $menu->food_name }}</h3>
+                        <p class="text-sm text-gray-500 mt-2">{{ $menu->description }}</p>
+                        <p class="text-sm text-gray-700 mt-2 font-semibold">Price: Rp {{ number_format($menu->price, 0, ',', '.') }}</p>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>
