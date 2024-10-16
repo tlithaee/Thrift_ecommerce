@@ -5,7 +5,7 @@
     <div class="space-y-4">
         <div>
             <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-            <input type="email" id="email" class="mt-1 block w-full border rounded-md p-2" placeholder="barlyvallendito@gmail.com">
+            <input type="email" id="email" class="mt-1 block w-full border rounded-md p-2" placeholder="example@gmail.com">
         </div>
     </div>
 
@@ -21,5 +21,5 @@
         @csrf
         <button type="submit" class="mt-6 w-full bg-black text-white py-3 rounded-lg font-semibold">Checkout</button>    
     </form>
-    
+
 </div>

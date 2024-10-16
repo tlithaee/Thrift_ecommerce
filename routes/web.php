@@ -50,7 +50,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Order Routes
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::post('/order/menu/{id}/increment', [OrderController::class, 'increment'])->name('order.increment');
+    Route::post('/order/menu/{id}/decrement', [OrderController::class, 'decrement'])->name('order.decrement');
+    
+    Route::post('/order/menu/{id}', [OrderController::class, 'deleteMenuOrder'])->name('order.deleteMenuOrder');
     Route::post('/order/submit', [OrderController::class, 'submitOrder'])->name('order.submit');
+    
     Route::post('/order/{slug}', [OrderController::class, 'addMenu'])->name('order.addMenu');
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });

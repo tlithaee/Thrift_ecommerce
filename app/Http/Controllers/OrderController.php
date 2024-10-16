@@ -58,8 +58,33 @@ class OrderController extends Controller
         $user = User::find(auth()->id());
         $order = $user->order;
         $order->menu()->delete();
-        return redirect('/')->with('success', 'Order submitted successfully!');;
+        return redirect('/')->with('success', 'Order submitted successfully!');
     }
 
+    public function deleteMenuOrder($id)
+    {
+        $order = User::find(auth()->id())->order;
+        $order->menu()->where('menu_id', $id)->delete();
+
+        return redirect('/order')->with('success', 'Order deleted successfully');
+    }
+
+    public function increment($id)
+    {
+        $order = User::find(auth()->id())->order;
+        $order->menu()->updateExistingPivot($id, [
+            'quantity' => DB::raw('quantity + 1')
+        ]);
+        return redirect('/order')->with('success', 'Order edited successfully');
+    }
+
+    public function decrement($id)
+    {
+        $order = User::find(auth()->id())->order;
+        $order->menu()->updateExistingPivot($id, [
+            'quantity' => DB::raw('quantity - 1')
+        ]);
+        return redirect('/order')->with('success', 'Order edited successfully');
+    }
     
 }
