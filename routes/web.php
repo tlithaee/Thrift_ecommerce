@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ChefController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Menu;
 use App\Models\Category;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChefController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ShippingAddressController;
 
 // Home route
 Route::get('/', function () {
@@ -50,15 +53,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/chefs/{slug}', [ChefController::class, 'filterByCategory'])->name('chefs.filterByCategory');
     Route::get('/chef/{slug}', [ChefController::class, 'show'])->name('chefs.show');
 
-    // Order Routes
-    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    Route::post('/order/menu/{id}/increment', [OrderController::class, 'increment'])->name('order.increment');
-    Route::post('/order/menu/{id}/decrement', [OrderController::class, 'decrement'])->name('order.decrement');
-    
-    Route::post('/order/menu/{id}', [OrderController::class, 'deleteMenuOrder'])->name('order.deleteMenuOrder');
-    Route::post('/order/submit', [OrderController::class, 'submitOrder'])->name('order.submit');
-    
-    Route::post('/order/{slug}', [OrderController::class, 'addMenu'])->name('order.addMenu');
+    // Cart Routes
+    Route::post('/cart/add/{menu}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/order', [CartController::class, 'showCart'])->name('cart.show'); 
+    Route::patch('/cart/update/{cartItem}', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::delete('/cart/remove/{cartItem}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+    // POST route for submitting shipping address
+    Route::post('/order', [ShippingAddressController::class, 'store'])->name('order.store');
+
+
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });
 
