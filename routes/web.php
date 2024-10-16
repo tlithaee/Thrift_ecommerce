@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Menu;
 use App\Models\Category;
@@ -48,9 +49,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // Order Routes
-    Route::get('/order', function () {
-        return view('order', ['title' => 'Order Page']);
-    });
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+
 
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });
