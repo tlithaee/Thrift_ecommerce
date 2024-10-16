@@ -1,14 +1,11 @@
 <x-layout>
     <div class="h-auto overflow-hidden pt-16">
-        <!-- Outer container with bg-gray-100 -->
         <div class="flex justify-center">
             <div class="w-full py-8 px-2 bg-gray-100 rounded-xl shadow-md overflow-hidden">
 
-                <!-- Flex container for Back button and content -->
-                <div class="flex items-start px-6"> <!-- Use flex instead of grid -->
-
+                <div class="flex items-start px-6"> 
                     <!-- Back Button -->
-                    <div class="flex-none"> <!-- Added margin-right to bring image closer -->
+                    <div class="flex-none"> 
                         <button onclick="window.history.back()" class="flex items-center text-white bg-green-600 rounded hover:bg-green-700 transition p-2">
                             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7" />
@@ -35,7 +32,6 @@
                                     <p class="text-xl tracking-tight text-gray-900">Rp.{{ number_format($menu->price, 2) }}</p>
                                 </div>
 
-                                <!-- Chef Section -->
                                 <div class="mt-4 flex items-center">
                                     <p class="text-gray-600 font-semibold mr-2">Chef:</p>
                                     <div class="flex items-center bg-green-100 text-green-800 px-2 py-0.5 rounded-lg hover:bg-green-200 transition duration-300">
@@ -65,7 +61,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
