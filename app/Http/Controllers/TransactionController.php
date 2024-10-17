@@ -81,8 +81,8 @@ public function history()
     // Fetch the user's transactions, along with their items and menu details, paginated
     $transactions = Transaction::with('transactionItems.menu')
                     ->where('user_id', Auth::id())
-                    ->orderBy('created_at', 'desc') // Order by latest
-                    ->paginate(5); // Paginate 5 transactions per page
+                    ->orderBy('created_at', 'desc') 
+                    ->paginate(5); 
 
     // Pass the paginated transactions to the view
     return view('history', compact('transactions'));
@@ -98,7 +98,7 @@ public function updatePaymentMethod(Request $request, Transaction $transaction)
     // Update the transaction with the new payment method
     $transaction->update([
         'payment_method' => $request->payment_method,
-        'status' => 'completed', // Update the status if needed
+        'status' => 'completed', 
     ]);
 
     // Return success response
