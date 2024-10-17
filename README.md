@@ -21,7 +21,7 @@ Below is the demo video link that illustrates the key functionality of this proj
 ## 🗂️ Conceptual Data Model
 Below is the conceptual data model that outlines the structure and relationships of the data used in this project.
 
-![alt text](cdm.jpg)
+![alt text](cdm.png)
 
 ### 📊 Planned Models:
 
