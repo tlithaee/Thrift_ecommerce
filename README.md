@@ -1,161 +1,142 @@
-# Laravel Final Project Plan - ArtisanEats
+# 🌟 Laravel Final Project Plan - ArtisanEats
 
-## Group Information
+## 📝 Group Information
 - *Group Number:* 34
 - *Class:* Pemrograman Berbasis Kerangka Kerja (D)
 
-## Group Members
+## 👥 Group Members
 | Name               | NRP         |
 |--------------------|-------------|
 | Rayssa Ravelia      | 5025211219  |
 | Wan Sabrina         | 5025211023  |
 | Syarifah Talitha    | 5025211175  |
 
-## Project Overview
+## 🌍 Project Overview
 For our final project in the Laravel framework course, we plan to develop a website called **ArtisanEats**, a Food Order Delivery Website. This website will allow customers to browse food menus and place delivery orders. The website will feature a clean and visually appealing green theme to represent freshness and sustainability.
 
-## Demo Video
+## 📽️ Demo Video
 Below is the demo video link that illustrates the key functionality of this project:  
 [Watch the demo video here](https://youtu.be/z85R-rFig2Q)
 
-## Conceptual Data Model
+## 🗂️ Conceptual Data Model
 Below is the conceptual data model that outlines the structure and relationships of the data used in this project.
 
 ![alt text](cdm.jpg)
 
-### Models and Relationships:
+### 📊 Planned Models:
 
-1. **User**
-   - **Attributes**:
-     - `id`: The unique identifier for the user.
-     - `name`: The user's full name.
-     - `email`: The email address used for login and communication.
-     - `email_verified_at`: A timestamp indicating if the user has verified their email.
-     - `password`: The user's password for authentication.
-   - **Relationships**:
-     - A `User` has one-to-many relationships with `Cart`, `Transaction`, and `CartItem`. This means each user can have multiple carts and transactions.
-
-2. **Category**
-   - **Attributes**:
-     - `id`: Unique identifier for the category.
-     - `specialty_name`: The name of the specialty within a category (e.g., Appetizers).
-     - `category_name`: Name of the category (e.g., "Entrees").
-     - `color`: A color code used for the UI to identify categories.
-     - `slug`: A URL-friendly version of the category name.
-   - **Relationships**:
-     - A `Category` has many `Menus`. One category can contain multiple menu items.
-
-3. **Menu**
-   - **Attributes**:
-     - `id`: Unique identifier for the menu item.
-     - `food_name`: The name of the food or dish (e.g., "Spaghetti Carbonara").
-     - `food_image`: A URL or path to the image of the food item.
-     - `slug`: A URL-friendly identifier for the menu.
-     - `desc`: A description of the food item.
-     - `ingredients`: A list of ingredients for the food item.
-   - **Relationships**:
-     - A `Menu` belongs to both a `Chef` and a `Category`.
-     - A `Menu` has many `TransactionItem` and `CartItem`. A menu can be ordered multiple times in different transactions and added to multiple carts.
-
-4. **Chef**
-   - **Attributes**:
-     - `id`: Unique identifier for the chef.
-     - `name`: Name of the chef.
-     - `bio`: A short biography or description of the chef's background.
-     - `photo`: URL or path to the chef's profile picture.
-     - `slug`: A URL-friendly identifier for the chef.
-   - **Relationships**:
-     - A `Chef` has many `Menus`. One chef can create multiple dishes.
-
-5. **Transaction**
-   - **Attributes**:
-     - `id`: Unique identifier for the transaction.
-     - `user_id`: The ID of the user who made the transaction.
-     - `total_price`: Total amount for the transaction.
-     - `address_line`, `city`, `state`, `zip_code`: Information related to the shipping address.
-     - `phone_number`: User's phone number for delivery purposes.
-     - `status`: Current status of the transaction (e.g., "pending", "completed").
-     - `payment_method`: The method of payment selected (e.g., "Gopay", "Cash On Delivery").
-   - **Relationships**:
-     - A `Transaction` belongs to a `User` and has many `TransactionItems`. Each transaction contains multiple items ordered from the `Menu`.
-
-6. **TransactionItem**
-   - **Attributes**:
-     - `id`: Unique identifier for the transaction item.
-     - `transaction_id`: Reference to the transaction it belongs to.
-     - `menu_id`: Reference to the menu item.
-     - `quantity`: Number of units of the menu item purchased.
-     - `price`: The price of the item for that transaction.
-   - **Relationships**:
-     - A `TransactionItem` belongs to both a `Transaction` and a `Menu`.
-
-7. **Cart**
-   - **Attributes**:
-     - `id`: Unique identifier for the cart.
-     - `user_id`: The ID of the user who owns the cart.
-   - **Relationships**:
-     - A `Cart` belongs to a `User` and has many `CartItems`. A user can have multiple carts over time.
-
-8. **CartItem**
-   - **Attributes**:
-     - `id`: Unique identifier for the cart item.
-     - `cart_id`: Reference to the cart it belongs to.
-     - `menu_id`: Reference to the menu item.
-     - `quantity`: Number of units of the menu item added to the cart.
-   - **Relationships**:
-     - A `CartItem` belongs to both a `Cart` and a `Menu`.
-
-### Workflow:
-
-1. **User Browses Menu**:
-   - A user can browse different menu items, categorized under different categories. The user can also view information about the chef who prepared the dish.
-
-2. **Add to Cart**:
-   - A user adds items to their cart. The items in the cart are stored in `CartItem`, which holds information on the menu item and the quantity.
-
-3. **View Cart and Proceed to Checkout**:
-   - Users can view their cart (`Cart`), and proceed to provide their shipping address and select a payment method. This data will be stored in the `Transaction` model.
-
-4. **Payment and Order Placement**:
-   - Once the user selects the payment method and confirms the order, a new `Transaction` is created. The transaction contains details of all the items (`TransactionItem`) from the cart and the total price.
-
-5. **Order History**:
-   - Users can view their order history by retrieving all transactions (`Transaction`) associated with their account. Each transaction includes details of the items (`TransactionItem`) and their status.
-
-6. **Update Payment Status**:
-   - After placing an order, users can return to the transaction page to confirm or update their payment method, and the status will update accordingly.
-
-
-### Key Features (Planned):
-1. *Menu Display:* Customers will be able to view a list of available food items, including details such as price, description, and images.
-2. *Order System:* Customers can add food items to their cart, adjust quantities, and place orders for delivery.
-3. *User Authentication:* Separate login systems for customers and admins. Admins will manage the menu, view orders, and update order statuses.
-4. *Responsive Design:* The website will be designed to work seamlessly on both mobile devices and desktops.
-
-This project is currently in the planning stage, and we aim to build a user-friendly platform that simplifies the food ordering process while ensuring efficient backend management for administrators.
-
-## Planned Models:
-ArtisanEats will feature several key models that form the backbone of the application. These models will effectively structure data and manage relationships between different entities within the system, encapsulating specific functionality related to core features of our food order delivery website.
-
-1. **Cart Model**: <br />
+1. **Cart Model**:  
    This model will handle the shopping cart functionality, allowing users to add, update, and remove items from their cart. It will manage the relationship between users and the products they wish to purchase.
 
-2. **Product Model**: <br />
+2. **Product Model**:  
    The Product model will represent individual food items available for order. It will include attributes such as name, description, price, and image URL. This model will be essential for displaying menu items to users.
 
-3. **User Model**: <br />
+3. **User Model**:  
    This model will manage user information for both customers and admins. It will handle user authentication, registration, and role-based access control, ensuring that users can log in and access features relevant to their role.
 
-4. **Order Model**: <br />
+4. **Order Model**:  
    The Order model will track customer orders, including the items ordered, quantities, user details, and order status (e.g., pending, completed). This model will be critical for managing the ordering process and ensuring that orders are processed correctly.
+   
+---
 
-## Technologies:
-- *Laravel*: The PHP framework we will use for the development.
-- *SqLite*: Database for storing customer data, orders, and menu information.
-- *Tailwind*: For the responsive front-end design.
-- *JavaScript*: For enhancing user interactions.
+## 🔄 Planned vs Actual Models Comparison:
 
-## Web Pages
+| **Planned Model**    | **Actual Model**     | **Differences/Changes**  | **Reason for Change**                                     |
+|----------------------|----------------------|--------------------------|-----------------------------------------------------------|
+| **User**             | **User**             | Same                     | This model is crucial for managing customer data and authentication. |
+| **Product**          | **Menu**             | Name changed from "Product" to "Menu" | To better align with the food delivery context, the term "Menu" was used to reflect the items available for order. |
+| **Cart**             | **Cart**             | Same                     | Required for the shopping functionality, no changes.       |
+| **Order**            | **Transaction**      | Name changed to "Transaction" | The model was renamed to "Transaction" to clarify its function, reflecting the overall process from order placement to payment. |
+| **Chef**             | **Chef**             | New Model Added           | Initially not planned, but added to provide users with detailed chef profiles, enhancing the user experience. |
+| **Category**         | **Category**         | New Model Added           | Added to organize the menu items into specific food categories for better browsing functionality. |
+| **TransactionItem**  | **TransactionItem**  | New Model Added           | Tracks individual items within each transaction to record the details of each menu item ordered. |
+| **CartItem**         | **CartItem**         | New Model Added           | Holds the items added to the cart before checkout. This was added to simplify managing multiple items in the user's cart. |
+
+### 💡 Explanation of Changes:
+1. **Menu vs Product**:  
+   The name was changed from "Product" to "Menu" to better reflect the context of the application. Since the website deals with food items, "Menu" is a more intuitive term for users.
+
+2. **Transaction vs Order**:  
+   We replaced "Order" with "Transaction" to align with common e-commerce terminology and Laravel's standard practices. This also emphasizes the entire lifecycle of a transaction, from order placement to payment.
+
+3. **New Models (Chef, Category, CartItem, TransactionItem)**:  
+   These models were added as the project evolved to meet the application's needs. **Chef** and **Category** were added to provide more detailed functionality for browsing food items and highlighting the experts behind the dishes. **CartItem** and **TransactionItem** were added to efficiently manage multiple items in the cart and orders.
+
+---
+
+Here’s the updated section for the key features, including a comparison between the planned and actual key features:
+
+---
+
+## 🛠️ Key Features (Planned vs Actual)
+
+### Key Features (Planned):
+1. **Menu Display**:  
+   Customers will be able to view a list of available food items, including details such as price, description, and images.
+
+2. **Order System**:  
+   Customers can add food items to their cart, adjust quantities, and place orders for delivery.
+
+3. **User Authentication**:  
+   Separate login systems for customers and admins. Admins will manage the menu, view orders, and update order statuses.
+
+4. **Responsive Design**:  
+   The website will be designed to work seamlessly on both mobile devices and desktops.
+
+---
+
+### Key Features (Actual):
+
+1. **Menu Display**:  
+   The menu display remains the same as planned. Customers can browse a list of available food items, view prices, descriptions, and images. Categories and chefs are also integrated into the menu display to enhance navigation.
+
+2. **Order through Cart**:  
+   Users can add food items to their cart, adjust quantities, and place orders for delivery. Instead of a direct order system, the **Cart** model was implemented to manage items before finalizing orders. 
+
+3. **User Authentication (Customer Only)**:  
+   User authentication is implemented, but **only for customers**. The admin system for managing the menu, orders, and statuses has not been implemented in this version, focusing more on the customer-facing features.
+
+4. **Responsive Design**:  
+   The website is designed to work seamlessly on both mobile devices and desktops, as planned, providing a smooth user experience across platforms.
+
+5. **Chef Page** (New Addition):  
+   A dedicated **Chef Page** was added where users can view the details of chefs who prepared the dishes. This feature wasn't part of the initial plan but was added to enhance user interaction and provide more information about the experts behind the food.
+
+---
+
+### 🔄 Planned vs Actual Key Features Comparison:
+
+| **Planned Feature**       | **Actual Feature**          | **Differences/Changes**                      | **Reason for Change**                                       |
+|---------------------------|-----------------------------|----------------------------------------------|-------------------------------------------------------------|
+| **Menu Display**           | **Menu Display**            | Same as planned                              | The initial feature of displaying menu items remains the same. |
+| **Order System**           | **Order through Cart**       | Shift to a Cart-based ordering system        | A Cart model was implemented to allow users to manage items before finalizing orders, offering more flexibility. |
+| **User Authentication (Admin + Customer)** | **User Authentication (Customer Only)** | Admin authentication was not implemented   | Focus shifted to building a customer-only system for simplicity and scope reasons. |
+| **Responsive Design**      | **Responsive Design**       | Same as planned                              | The application is designed for mobile and desktop compatibility as planned. |
+| **Chef Page** (Not Planned) | **Chef Page** (New Addition) | New feature added for chef profiles         | This was added to improve user engagement by showcasing chefs, which wasn't in the initial scope but enhances the experience. |
+
+
+## 🚀 Workflow:
+
+1. **User Browses Menu**:
+   - Users can explore available menu items categorized by food type (e.g., appetizers, entrees). Detailed information such as price, description, and images is provided.
+
+2. **Add to Cart**:
+   - Users add items to their cart (`CartItem`) with the option to adjust quantities. The cart (`Cart`) tracks the user’s selected items.
+
+3. **Checkout Process**:
+   - Users can view their cart and proceed to checkout, where they provide their shipping address and select a payment method. This information is stored in the `Transaction` model.
+
+4. **Payment and Confirmation**:
+   - After submitting the payment method and confirming the order, the system generates a `Transaction`, storing all the associated transaction items (`TransactionItem`).
+
+5. **Order History**:
+   - Users can view their past orders by accessing the `Transaction` model. Each transaction includes details of the items purchased and their statuses (pending, completed, etc.).
+
+6. **Update Payment Method**:
+   - If a user’s transaction is marked as pending, they can return to the transaction and update the payment method.
+
+
+## 💻 Web Pages
 Below describes the key pages and functionalities of the web application.
 
 - [**Authentication**](#authentication):
@@ -305,5 +286,5 @@ Below describes the key pages and functionalities of the web application.
    ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/profile2.png)
    - Additionally, users can update their password by providing their current password, a new password, and confirming it. There is also an option to permanently delete their account, with a warning to download any important data before proceeding.
 
----
+
 
