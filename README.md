@@ -20,7 +20,111 @@ Below is the demo video link that illustrates the key functionality of this proj
 
 ## Conceptual Data Model
 Below is the conceptual data model that outlines the structure and relationships of the data used in this project.
+
 ![alt text](cdm.jpg)
+
+### Models and Relationships:
+
+1. **User**
+   - **Attributes**:
+     - `id`: The unique identifier for the user.
+     - `name`: The user's full name.
+     - `email`: The email address used for login and communication.
+     - `email_verified_at`: A timestamp indicating if the user has verified their email.
+     - `password`: The user's password for authentication.
+   - **Relationships**:
+     - A `User` has one-to-many relationships with `Cart`, `Transaction`, and `CartItem`. This means each user can have multiple carts and transactions.
+
+2. **Category**
+   - **Attributes**:
+     - `id`: Unique identifier for the category.
+     - `specialty_name`: The name of the specialty within a category (e.g., Appetizers).
+     - `category_name`: Name of the category (e.g., "Entrees").
+     - `color`: A color code used for the UI to identify categories.
+     - `slug`: A URL-friendly version of the category name.
+   - **Relationships**:
+     - A `Category` has many `Menus`. One category can contain multiple menu items.
+
+3. **Menu**
+   - **Attributes**:
+     - `id`: Unique identifier for the menu item.
+     - `food_name`: The name of the food or dish (e.g., "Spaghetti Carbonara").
+     - `food_image`: A URL or path to the image of the food item.
+     - `slug`: A URL-friendly identifier for the menu.
+     - `desc`: A description of the food item.
+     - `ingredients`: A list of ingredients for the food item.
+   - **Relationships**:
+     - A `Menu` belongs to both a `Chef` and a `Category`.
+     - A `Menu` has many `TransactionItem` and `CartItem`. A menu can be ordered multiple times in different transactions and added to multiple carts.
+
+4. **Chef**
+   - **Attributes**:
+     - `id`: Unique identifier for the chef.
+     - `name`: Name of the chef.
+     - `bio`: A short biography or description of the chef's background.
+     - `photo`: URL or path to the chef's profile picture.
+     - `slug`: A URL-friendly identifier for the chef.
+   - **Relationships**:
+     - A `Chef` has many `Menus`. One chef can create multiple dishes.
+
+5. **Transaction**
+   - **Attributes**:
+     - `id`: Unique identifier for the transaction.
+     - `user_id`: The ID of the user who made the transaction.
+     - `total_price`: Total amount for the transaction.
+     - `address_line`, `city`, `state`, `zip_code`: Information related to the shipping address.
+     - `phone_number`: User's phone number for delivery purposes.
+     - `status`: Current status of the transaction (e.g., "pending", "completed").
+     - `payment_method`: The method of payment selected (e.g., "Gopay", "Cash On Delivery").
+   - **Relationships**:
+     - A `Transaction` belongs to a `User` and has many `TransactionItems`. Each transaction contains multiple items ordered from the `Menu`.
+
+6. **TransactionItem**
+   - **Attributes**:
+     - `id`: Unique identifier for the transaction item.
+     - `transaction_id`: Reference to the transaction it belongs to.
+     - `menu_id`: Reference to the menu item.
+     - `quantity`: Number of units of the menu item purchased.
+     - `price`: The price of the item for that transaction.
+   - **Relationships**:
+     - A `TransactionItem` belongs to both a `Transaction` and a `Menu`.
+
+7. **Cart**
+   - **Attributes**:
+     - `id`: Unique identifier for the cart.
+     - `user_id`: The ID of the user who owns the cart.
+   - **Relationships**:
+     - A `Cart` belongs to a `User` and has many `CartItems`. A user can have multiple carts over time.
+
+8. **CartItem**
+   - **Attributes**:
+     - `id`: Unique identifier for the cart item.
+     - `cart_id`: Reference to the cart it belongs to.
+     - `menu_id`: Reference to the menu item.
+     - `quantity`: Number of units of the menu item added to the cart.
+   - **Relationships**:
+     - A `CartItem` belongs to both a `Cart` and a `Menu`.
+
+### Workflow:
+
+1. **User Browses Menu**:
+   - A user can browse different menu items, categorized under different categories. The user can also view information about the chef who prepared the dish.
+
+2. **Add to Cart**:
+   - A user adds items to their cart. The items in the cart are stored in `CartItem`, which holds information on the menu item and the quantity.
+
+3. **View Cart and Proceed to Checkout**:
+   - Users can view their cart (`Cart`), and proceed to provide their shipping address and select a payment method. This data will be stored in the `Transaction` model.
+
+4. **Payment and Order Placement**:
+   - Once the user selects the payment method and confirms the order, a new `Transaction` is created. The transaction contains details of all the items (`TransactionItem`) from the cart and the total price.
+
+5. **Order History**:
+   - Users can view their order history by retrieving all transactions (`Transaction`) associated with their account. Each transaction includes details of the items (`TransactionItem`) and their status.
+
+6. **Update Payment Status**:
+   - After placing an order, users can return to the transaction page to confirm or update their payment method, and the status will update accordingly.
+
 
 ### Key Features (Planned):
 1. *Menu Display:* Customers will be able to view a list of available food items, including details such as price, description, and images.
