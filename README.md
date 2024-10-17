@@ -67,7 +67,6 @@ Below describes the key pages and functionalities of the web application.
   - [Chef Detail Page](#chef-detail-page)
 - [**Profile**](#profile):
   - [Profile Settings Page](#profile-settings-page)
----
 
 ### **Authentication:**
 
@@ -193,3 +192,5 @@ Below describes the key pages and functionalities of the web application.
 
    ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/profile2.png)
    - Additionally, users can update their password by providing their current password, a new password, and confirming it. There is also an option to permanently delete their account, with a warning to download any important data before proceeding.
+
+---
