@@ -64,6 +64,10 @@ Below is the conceptual data model that outlines the structure and relationships
 
 ---
 
+Here’s the updated section for the key features, including a comparison between the planned and actual key features:
+
+---
+
 ## 🛠️ Key Features (Planned vs Actual)
 
 ### Key Features (Planned):
@@ -267,7 +271,8 @@ Below describes the key pages and functionalities of the web application.
 
 3. **Chef Detail Page:**
 
-   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chefdetails.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chefdetails1.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chefdetails2.png)
    - The chef detail page highlights the full profile of an individual chef.
    - It includes their biography, their culinary journey, and the specialties they are known for.
    - Signature dishes created by the chef are also listed at the bottom of the page.
