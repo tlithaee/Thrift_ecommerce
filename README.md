@@ -64,10 +64,6 @@ Below is the conceptual data model that outlines the structure and relationships
 
 ---
 
-Here’s the updated section for the key features, including a comparison between the planned and actual key features:
-
----
-
 ## 🛠️ Key Features (Planned vs Actual)
 
 ### Key Features (Planned):
