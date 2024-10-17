@@ -73,7 +73,7 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Login Page:**
 
-   ![alt text](public/images/screenshots/login.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/login.png)
    - The login page allows registered users to log into their accounts. 
    - It features fields for entering an email address and password. 
    - There's also an option to remember the user by using a "Remember Me" checkbox. 
@@ -82,7 +82,7 @@ Below describes the key pages and functionalities of the web application.
   
 2. **Register Page:**
 
-   ![alt text](public/images/screenshots/register.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/register.png)
    - The register page is where new users can create an account.
    - Users must provide their name, email, password, and confirm the password before clicking the "Register" button.
    - The page also has a link for existing users to navigate to the login page if they already have an account. 
@@ -91,21 +91,21 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Hero Section:**
 
-   ![alt text](public/images/screenshots/hero.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/hero.png)
    - The hero section showcases the main offer of Artisan Eats, highlighting its services for gourmet food delivery.
    - It features a prominent headline: *"Experience the Finest Cuisine with Artisan Eats"*, along with a short description about the service.
    - Users can click the "Browse Menu" button to explore available dishes.
 
 2. **About Us Section:**
 
-   ![alt text](public/images/screenshots/about.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/about.png)
    - The About Us section provides information about the company’s mission and values.
    - It emphasizes the use of fresh, locally-sourced ingredients to ensure the best quality meals.
    - There's a "Contact Us" button for users to reach out for further information.
 
 3. **Contact Us Section:**
 
-   ![alt text](public/images/screenshots/contact.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/contact.png)
    - This section provides a form for users to directly contact Artisan Eats.
    - It includes fields for name, email, and a message, as well as key contact details such as address, phone number, and email. 
    - The "Send Message" button allows users to submit their inquiries or messages easily.
@@ -114,23 +114,23 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Menu Page:**
 
-   ![alt text](public/images/screenshots/menu1.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/menu1.png)
    - The Menu Page showcases a curated list of available dishes categorized by type.
    - Users can easily browse and add items to their cart from this page.
   
-   ![alt text](public/images/screenshots/menu2.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/menu2.png)
    - Each dish is displayed with an image, name, price, and category.
    - There is also an option to view more details or directly add the dish to the cart.
 
 2. **Category Page:**
 
-   ![alt text](public/images/screenshots/categories.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/categories.png)
    - The Category Page groups dishes by specific types such as appetizers, entrees, desserts, and more.
    - Users can explore items by category and view all relevant dishes for their selection.
 
 3. **Menu Detail Page:**
 
-   ![alt text](public/images/screenshots/menudetails.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/menudetails.png)
    - This page provides detailed information about a specific dish.
    - Users can see the chef responsible for the dish, the list of ingredients, and the option to adjust the quantity before adding the item to their cart.
 
@@ -138,8 +138,8 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Cart Page:**
 
-   ![alt text](public/images/screenshots/cart1.png)
-   ![alt text](public/images/screenshots/cart2.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/cart1.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/cart2.png)
    - The cart page displays a list of the items the user has added. 
    - Users can modify the quantity or remove items from the cart.
    - An order summary on the right provides details on the original price, delivery cost, and total price.
@@ -149,14 +149,14 @@ Below describes the key pages and functionalities of the web application.
 
 2. **Order Summary/Payment Page:**
 
-   ![alt text](public/images/screenshots/summary.png)
-   ![alt text](public/images/screenshots/paymentsuccess.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/summary.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/paymentsuccess.png)
    - This page confirms the details of the order and includes the final shipping address, payment method, and total price.
    - Once the payment is processed, a "Payment Successful" message is displayed, confirming the order has been placed.
 
 3. **Order History Page:**
 
-   ![alt text](public/images/screenshots/history.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/history.png)
    - The order history page lists all completed orders by the user.
    - It displays details such as order number, order date, dishes purchased, and the total cost.
    - Users can expand or collapse order details to see which dishes were part of each order and the respective chefs.
@@ -165,7 +165,7 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Chef Page:**
 
-   ![alt text](public/images/screenshots/chef.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chef.png)
    - The chef page presents a list of all the chefs working for the restaurant. 
    - Each chef's profile includes their name and specialty.
    - The page includes a filter option for users to browse chefs based on their specialty, such as soup, dessert, etc.
@@ -173,13 +173,13 @@ Below describes the key pages and functionalities of the web application.
 
 2. **Chef Categories:**
 
-   ![alt text](public/images/screenshots/chefcategories.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chefcategories.png)
    - This page showcases chefs filtered based on their expertise in specific categories, such as soup, pasta, or desserts.
    - Users can select a category from the dropdown, and the page will update to show only the chefs specializing in that category.
 
 3. **Chef Detail Page:**
 
-   ![alt text](public/images/screenshots/chefdetails.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/chefdetails.png)
    - The chef detail page highlights the full profile of an individual chef.
    - It includes their biography, their culinary journey, and the specialties they are known for.
    - Signature dishes created by the chef are also listed at the bottom of the page.
@@ -188,8 +188,8 @@ Below describes the key pages and functionalities of the web application.
 
 1. **Profile Settings Page:**
 
-   ![alt text](public/images/screenshots/profile1.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/profile1.png)
    - This section allows users to update their profile information, including their name, email, and profile photo. Users can upload a new photo by selecting a file and saving the changes.
 
-   ![alt text](public/images/screenshots/profile2.png)
+   ![alt text](https://github.com/rayrednet/Laravel-FP/raw/main/public/images/screenshots/profile2.png)
    - Additionally, users can update their password by providing their current password, a new password, and confirming it. There is also an option to permanently delete their account, with a warning to download any important data before proceeding.
