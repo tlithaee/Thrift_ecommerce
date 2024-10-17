@@ -11,6 +11,9 @@
 | Wan Sabrina         | 5025211023  |
 | Syarifah Talitha    | 5025211175  |
 
+## Project Overview
+For our final project in the Laravel framework course, we plan to develop a website called **ArtisanEats**, a Food Order Delivery Website. This website will allow customers to browse food menus and place delivery orders. The website will feature a clean and visually appealing green theme to represent freshness and sustainability.
+
 ## Demo Video
 Below is the demo video link that illustrates the key functionality of this project:  
 [Watch the demo video here](https://youtu.be/z85R-rFig2Q)
@@ -18,9 +21,6 @@ Below is the demo video link that illustrates the key functionality of this proj
 ## Conceptual Data Model
 Below is the conceptual data model that outlines the structure and relationships of the data used in this project.
 ![alt text](cdm.jpg)
-
-## Project Overview
-For our final project in the Laravel framework course, we plan to develop a website called **ArtisanEats**, a Food Order Delivery Website. This website will allow customers to browse food menus and place delivery orders. The website will feature a clean and visually appealing green theme to represent freshness and sustainability.
 
 ### Key Features (Planned):
 1. *Menu Display:* Customers will be able to view a list of available food items, including details such as price, description, and images.
