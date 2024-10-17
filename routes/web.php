@@ -2,13 +2,14 @@
 
 use App\Models\Menu;
 use App\Models\Category;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChefController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ShippingAddressController;
 
 // Home route
@@ -62,6 +63,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // POST route for submitting shipping address
     Route::post('/order', [ShippingAddressController::class, 'store'])->name('order.store');
 
+    // Transaction Routes
+    // Store the order and redirect to transaction summary
+    Route::post('/order/store', [TransactionController::class, 'store'])->name('order.store');
+
+    // Display the transaction summary page
+    Route::get('/transaction/{transaction}', [TransactionController::class, 'summary'])->name('transaction.summary');
+
+    // Payment Routes
+    Route::put('/update-transaction-status/{id}', [TransactionController::class, 'updateStatus']);
+    Route::patch('/transaction/{transaction}/update-payment-method', [TransactionController::class, 'updatePaymentMethod'])->name('transaction.updatePaymentMethod');
+
+    // History Routes
+    Route::get('/history', [TransactionController::class, 'history'])->name('transaction.history');
+    
 
     Route::get('/chefs', [ChefController::class, 'index'])->name('chefs.index');
 });

@@ -112,7 +112,7 @@
                 <div class="flex max-sm:flex-col gap-12 max-lg:gap-4 h-full">
                     <div class="max-w-4xl w-full h-max rounded-md px-4 py-4 sticky top-0">
                         <div>
-                            <h3 class="text-base text-gray-800 mb-4">Personal Details</h3>
+                          <h3 class="text-base text-green-800 mb-4"><b>Personal Details</b></h3>
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <input type="text" name="first_name" placeholder="First Name"
@@ -134,38 +134,38 @@
                             </div>
                         </div>
 
-                        <!-- Form Action -->
                         <form action="{{ route('order.store') }}" method="POST" class="mt-8">
-                            @csrf
-                            <div class="mt-8">
-                                <h3 class="text-base text-gray-800 mb-4">Shipping Address</h3>
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div>
-                                        <input type="text" name="address_line" placeholder="Address Line" required
-                                            class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
-                                    </div>
-                                    <div>
-                                        <input type="text" name="city" placeholder="City" required
-                                            class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
-                                    </div>
-                                    <div>
-                                        <input type="text" name="state" placeholder="State" required
-                                            class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
-                                    </div>
-                                    <div>
-                                        <input type="text" name="zip_code" placeholder="Zip Code" required
-                                            class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
-                                    </div>
-                                    <div>
-                                        <input type="text" name="phone_number" placeholder="Phone Number" required
-                                            class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
-                                    </div>
-                                </div>
-
-                                <div class="flex gap-4 max-md:flex-col mt-8">
-                                    <button type="submit" class="rounded-md px-6 py-3 w-full text-sm tracking-wide bg-green-600 hover:bg-green-700 text-white">Continue to Order</button>
-                                </div>
-                            </div>
+                          @csrf
+                          <div class="mt-8">
+                              <h3 class="text-base text-green-800 mb-4"><b>Shipping Address</b></h3>
+                              <div class="grid md:grid-cols-2 gap-4">
+                                  <div>
+                                      <input type="text" name="address_line" placeholder="Address Line" required
+                                             class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
+                                  </div>
+                                  <div>
+                                      <input type="text" name="city" placeholder="City" required
+                                             class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
+                                  </div>
+                                  <div>
+                                      <input type="text" name="state" placeholder="State" required
+                                             class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
+                                  </div>
+                                  <div>
+                                      <input type="text" name="zip_code" placeholder="Zip Code" required
+                                             class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
+                                  </div>
+                                  <div>
+                                      <input type="text" name="phone_number" placeholder="Phone Number" required
+                                             class="px-4 py-3 bg-gray-100 focus:bg-transparent text-gray-800 w-full text-sm rounded-md focus:outline-green-600" />
+                                  </div>
+                              </div>
+                              <div class="flex gap-4 max-md:flex-col mt-8">
+                                  <button type="submit" class="rounded-md px-6 py-3 w-full text-sm tracking-wide bg-green-600 hover:bg-green-700 text-white">
+                                      Continue to Order
+                                  </button>
+                              </div>
+                          </div>
                         </form>
                     </div>
                 </div>

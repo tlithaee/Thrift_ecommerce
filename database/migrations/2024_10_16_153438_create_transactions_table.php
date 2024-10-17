@@ -14,10 +14,17 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->decimal('total_price', 8, 2);
+            $table->decimal('total_price', 10, 2);
+            $table->string('address_line');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip_code');
+            $table->string('phone_number');
             $table->string('status')->default('pending');
+            $table->string('payment_method')->default('Cash on Delivery');
             $table->timestamps();
         });
+        
     }
 
     /**
