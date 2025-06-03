@@ -70,7 +70,7 @@
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">
                 {{ __('Already have an account?') }}
-                <a href="{{ route('login') }}" class="underline text-green-600 hover:text-green-500">
+                <a href="{{ route('login') }}" class="underline text-orange-600 hover:text-orange-500">
                     {{ __('Login here') }}
                 </a>
             </p>

@@ -61,7 +61,7 @@
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-600">
                 {{ __("Don't have an account?") }}
-                <a href="{{ route('register') }}" class="underline text-green-600 hover:text-green-500">
+                <a href="{{ route('register') }}" class="underline text-orange-600 hover:text-orange-500">
                     {{ __('Register here') }}
                 </a>
             </p>
